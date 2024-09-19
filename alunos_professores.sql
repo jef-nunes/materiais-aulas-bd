@@ -1,12 +1,12 @@
 -- CRIAR UMA BASE DE DADOS --
-CREATE DATABASE aula1;
-USE aula1;
+CREATE DATABASE IF NOT EXISTS academico;
+USE academico;
 
 -- CRIAR TABELAS --
-CREATE TABLE aluno(id_aluno integer primary key auto_increment,
+CREATE TABLE IF NOT EXISTS aluno(id_aluno integer primary key auto_increment,
 nome varchar(255), idade int, endereco varchar(255));
 
-CREATE TABLE professor(id_professor integer primary key auto_increment,
+CREATE TABLE IF NOT EXISTS professor(id_professor integer primary key auto_increment,
 nome varchar(255), idade int, endereco varchar(255), materia varchar(255));
 
 -- INSERINDO REGISTROS DE ALUNOS --
@@ -34,11 +34,21 @@ INSERT INTO professor(nome, idade, endereco, materia) VALUES('Lucio', 29, 'Rua A
 INSERT INTO professor(nome, idade, endereco, materia) VALUES('Lucas', 37, 'Rua AX', 'Física');
 INSERT INTO professor(nome, idade, endereco, materia) VALUES('Eduardo', 41, 'Rua AY', 'Informática');
 
--- CONSULTANDO REGISTRO --
-SELECT nome FROM aluno WHERE id=1;
+-- CONSULTANDO REGISTRO DE ALUNOS --
+SELECT * FROM aluno;
+SELECT nome FROM aluno WHERE id_aluno = 1;
+SELECT * FROM aluno WHERE idade > 21;
+SELECT * FROM professor;
+SELECT nome, materia FROM professor WHERE idade < 35;
 
--- ATUALIZANDO REGISTRO --
-UPDATE aluno SET nome='Pedro' WHERE id=1;
+-- ATUALIZANDO REGISTRO DE ALUNOS --
+UPDATE aluno SET nome = 'Pedro' WHERE id_aluno = 1;
+UPDATE aluno SET endereco = 'Rua Z' WHERE id_aluno = 3;
+UPDATE professor SET materia = 'Educação Física' WHERE id_professor = 8;
+UPDATE professor SET endereco = 'Rua B' WHERE nome = 'Carlos';
 
--- DELETANDO REGISTRO --
-DELETE FROM aluno WHERE id=2;
+-- DELETANDO REGISTRO DE ALUNOS --
+DELETE FROM aluno WHERE id_aluno = 2;
+DELETE FROM aluno WHERE nome = 'Roger';
+DELETE FROM professor WHERE id_professor = 3;
+DELETE FROM professor WHERE nome = 'Juliana';
