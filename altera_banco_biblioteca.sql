@@ -4,6 +4,7 @@
 --    3. Ao excluir usuários, todos os seus telefones devem ser excluídos, e quando identificador do usuário for alterado,  o seu telefone deve ser atualizado com o novo valor. 
 --    4. Autores com obras não devem ser excluídos e nem alterados
 --    5. Ao excluir ou alterar uma obra, todos as suas relações com autores devem ser excluídas ou alteradas
+
 -- Implementando modificações
 -- 1.
 ALTER TABLE Obras
